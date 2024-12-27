@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class StudentGradeCalculator {
+
+    private String Student_Name;
+    private int Marks_Tamil;
+    private int Marks_English;
+    private int Marks_Maths;
+    private int Marks_Physics;
+    private int Marks_Chemistry;
+
+
+    public static void main(String[] args) {
+        StudentGradeCalculator grade=new StudentGradeCalculator();
+
+        grade.startCalculate();
+    }
+
+    private void startCalculate() {
+
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Your Name");
+        Student_Name=sc.nextLine();
+        System.out.println("Enter Tamil Marks");
+        Marks_Tamil=sc.nextInt();
+        System.out.println("Enter English Marks");
+        Marks_English=sc.nextInt();
+        System.out.println("Enter Maths Marks");
+        Marks_Maths=sc.nextInt();
+        System.out.println("Enter Physics Marks");
+        Marks_Physics=sc.nextInt();
+        System.out.println("Enter Chemistry Marks");
+        Marks_Chemistry=sc.nextInt();
+
+
+        int tot=Marks_Tamil+Marks_English+Marks_Maths+Marks_Physics+Marks_Chemistry;
+        int avg=tot/5;
+        System.out.println();
+        System.out.println("Student Name : "+Student_Name);
+        System.out.println("Total Marks : "+tot);
+        System.out.println("Average Marks : "+avg);
+        System.out.print("Grade Obrained : ");
+
+
+        if(avg>=90 && avg<=100){    
+            System.out.println("Grade A");
+        }   
+        else if(avg>=80 && avg<=89){
+            System.out.println("Grade B");
+        }
+        else if(avg>=70 && avg<=79){
+            System.out.println("Grade C");
+        }   
+        else if(avg<=69){
+            System.out.println("Grade D");
+        }
+        System.out.println();
+}
+}
