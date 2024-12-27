@@ -1,0 +1,79 @@
+import java.util.*;
+
+public class ATM_Interface {
+    private int balance;
+    private String Account_Holder_Name;
+
+    public ATM_Interface(int balance) {
+        this.balance = balance;
+    }
+    public void Withdrawal(int amount){
+        if(amount>0 && amount<=balance)
+        {
+            balance=balance-amount;
+            System.out.println("Withdrawal Successfull");
+            System.out.println("Your balance is "+balance);
+        }
+        else if(amount>balance){
+            System.out.println("Insufficient Balance");
+        }
+    }
+
+    public void Deposit(int amount){
+        if(amount>0){
+            balance=balance+amount;
+            System.out.println("Deposit Successfull");
+            System.out.println("Your balance is "+balance);
+        }
+        else{
+            System.out.println("Invalid Amount");
+        }
+    }
+
+    public void CheckBalance(){
+        System.out.println("Your balance is "+balance);
+    }
+
+    public static void main(String args[])
+    {
+        ATM_Interface ATM=new ATM_Interface(10000);
+        ATM.StartATM();
+    }
+    public void StartATM() {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter your Name");
+        Account_Holder_Name=sc.nextLine();
+
+        System.out.println("Hello "+Account_Holder_Name+" Please Enter your choice");
+        System.out.println("1. Withdrawal");
+        System.out.println("2. Deposit");
+        System.out.println("3. Check Balance");
+        System.out.println("4. Exit");
+
+        int choice=sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Enter the amount to be withdrawn");
+                int amount=sc.nextInt();
+                Withdrawal(amount);
+                break;
+            case 2:
+                System.out.println("Enter the amount to be Deposited");
+                int amount1=sc.nextInt();
+                Deposit(amount1);
+                break;
+            case 3:
+                CheckBalance();
+                break;
+            case 4:
+                System.out.println("Thanks for visiting our ATM");
+                break;
+        
+            default:
+                System.out.println("Invalid Choice");
+                break;
+       } 
+
+    }
+}
